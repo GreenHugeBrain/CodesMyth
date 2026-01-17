@@ -1,0 +1,169 @@
+@import url("//cdn.web-fonts.ge/fonts/alk-rounded-mtav-med/css/alk-rounded-mtav-med.min.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-gray-50 via-white to-primary-50/30 text-gray-900 antialiased;
+    font-family: 'ALK Rounded Mtav Med', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  * {
+    font-family: 'ALK Rounded Mtav Med', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply relative overflow-hidden bg-gradient-to-r from-primary-500 via-primary-600 to-cyan-500 text-white px-8 py-3.5 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl hover:shadow-primary-500/50;
+  }
+  
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+  }
+  
+  .btn-primary:hover::before {
+    left: 100%;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-primary-700 border-2 border-primary-300 px-8 py-3.5 rounded-xl font-semibold hover:bg-primary-50 hover:border-primary-500 transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+  
+  .card {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-6 border border-primary-100/50 hover:border-primary-200;
+  }
+  
+  .card-premium {
+    @apply relative overflow-hidden bg-gradient-to-br from-white via-primary-50/30 to-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 border border-primary-200/50;
+  }
+  
+  .card-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #57bcd9, #85cee3, #29aacf);
+  }
+  
+  .input-field {
+    @apply w-full px-5 py-3.5 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-400 focus:border-primary-400 transition-all duration-300 bg-white/50 hover:bg-white;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, #edf3f5 0%, #d4e7ec 25%, #ffffff 50%, #edf3f5 75%, #c8dfe6 100%);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+  
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  .glass-effect {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-xl;
+  }
+  
+  .hero-pattern {
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(141, 207, 227, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(87, 188, 217, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba(196, 226, 234, 0.1) 0%, transparent 50%);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 via-cyan-500 to-primary-500 bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+  }
+  
+  @keyframes shine {
+    to { background-position: 200% center; }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+      transform: translateY(-15px) rotate(2deg);
+    }
+    66% {
+      transform: translateY(-8px) rotate(-2deg);
+    }
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .glow-effect {
+    box-shadow: 0 0 20px rgba(87, 188, 217, 0.3), 0 0 40px rgba(87, 188, 217, 0.1);
+  }
+  
+  .glow-effect:hover {
+    box-shadow: 0 0 30px rgba(87, 188, 217, 0.5), 0 0 60px rgba(87, 188, 217, 0.2);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #57bcd9, #29aacf);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #29aacf, #57bcd9);
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(87, 188, 217, 0.3);
+  color: inherit;
+}
